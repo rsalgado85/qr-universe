@@ -11,58 +11,7 @@ import {
   Briefcase,
   ArrowRight,
 } from "lucide-react";
-
-const templates = [
-  {
-    icon: UtensilsCrossed,
-    title: "Restaurants",
-    description: "Digital menus, online ordering, and table booking QR codes.",
-    color: "text-orange-400",
-    gradient: "from-orange-500/10 to-yellow-500/10",
-  },
-  {
-    icon: Building2,
-    title: "Real Estate",
-    description: "Virtual tours, property listings, and agent contact codes.",
-    color: "text-blue-400",
-    gradient: "from-blue-500/10 to-cyan-500/10",
-  },
-  {
-    icon: CalendarDays,
-    title: "Events",
-    description: "Registration, ticketing, schedules, and live updates.",
-    color: "text-purple-400",
-    gradient: "from-purple-500/10 to-pink-500/10",
-  },
-  {
-    icon: UserCircle2,
-    title: "Personal Brand",
-    description: "Portfolio, social links, and personal landing pages.",
-    color: "text-primary",
-    gradient: "from-primary/10 to-emerald-500/10",
-  },
-  {
-    icon: TrendingUp,
-    title: "Influencers",
-    description: "Link trees, campaigns, merchandise, and engagement codes.",
-    color: "text-pink-400",
-    gradient: "from-pink-500/10 to-rose-500/10",
-  },
-  {
-    icon: UserCheck,
-    title: "Recruiters",
-    description: "Job postings, application forms, and company culture codes.",
-    color: "text-green-400",
-    gradient: "from-green-500/10 to-teal-500/10",
-  },
-  {
-    icon: Briefcase,
-    title: "Corporate",
-    description: "Brand portals, investor relations, and internal tools.",
-    color: "text-indigo-400",
-    gradient: "from-indigo-500/10 to-blue-500/10",
-  },
-];
+import { useLanguage } from "@/components/language-provider";
 
 const container = {
   hidden: { opacity: 0 },
@@ -78,6 +27,60 @@ const cardItem = {
 };
 
 export function Templates() {
+  const { t } = useLanguage();
+
+  const templates = [
+    {
+      icon: UtensilsCrossed,
+      title: t.templates.categories.restaurants,
+      description: "Digital menus, online ordering, and table booking QR codes.",
+      color: "text-orange-400",
+      gradient: "from-orange-500/10 to-yellow-500/10",
+    },
+    {
+      icon: Building2,
+      title: t.templates.categories.realEstate,
+      description: "Virtual tours, property listings, and agent contact codes.",
+      color: "text-blue-400",
+      gradient: "from-blue-500/10 to-cyan-500/10",
+    },
+    {
+      icon: CalendarDays,
+      title: t.templates.categories.events,
+      description: "Registration, ticketing, schedules, and live updates.",
+      color: "text-purple-400",
+      gradient: "from-purple-500/10 to-pink-500/10",
+    },
+    {
+      icon: UserCircle2,
+      title: t.templates.categories.personalBrand,
+      description: "Portfolio, social links, and personal landing pages.",
+      color: "text-primary",
+      gradient: "from-primary/10 to-emerald-500/10",
+    },
+    {
+      icon: TrendingUp,
+      title: t.templates.categories.influencers,
+      description: "Link trees, campaigns, merchandise, and engagement codes.",
+      color: "text-pink-400",
+      gradient: "from-pink-500/10 to-rose-500/10",
+    },
+    {
+      icon: UserCheck,
+      title: t.templates.categories.recruiters,
+      description: "Job postings, application forms, and company culture codes.",
+      color: "text-green-400",
+      gradient: "from-green-500/10 to-teal-500/10",
+    },
+    {
+      icon: Briefcase,
+      title: t.templates.categories.corporate,
+      description: "Brand portals, investor relations, and internal tools.",
+      color: "text-indigo-400",
+      gradient: "from-indigo-500/10 to-blue-500/10",
+    },
+  ];
+
   return (
     <section id="templates" className="py-24 sm:py-32 relative">
       {/* Background accent */}
@@ -93,16 +96,15 @@ export function Templates() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
             <span className="text-xs font-medium text-gold uppercase tracking-wider">
-              Templates
+              {t.templates.badge}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Ready-to-Use{" "}
-            <span className="gradient-text">QR Templates</span>
+            {t.templates.title1}{" "}
+            <span className="gradient-text">{t.templates.title2}</span>
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Launch in minutes with beautifully designed templates for every use
-            case. Fully customizable to match your brand.
+            {t.templates.subtitle}
           </p>
         </motion.div>
 

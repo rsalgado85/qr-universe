@@ -4,7 +4,6 @@ import { Templates } from "@/components/landing/Templates";
 import { AnalyticsShowcase } from "@/components/landing/AnalyticsShowcase";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { FAQ } from "@/components/landing/FAQ";
-import { Pricing } from "@/components/landing/Pricing";
 import { CTA } from "@/components/landing/CTA";
 
 export default function HomePage() {
@@ -16,7 +15,6 @@ export default function HomePage() {
       <AnalyticsShowcase />
       <Testimonials />
       <FAQ />
-      <Pricing />
       <CTA />
     </>
   );

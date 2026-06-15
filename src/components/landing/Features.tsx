@@ -9,57 +9,7 @@ import {
   Calendar,
   BarChart3,
 } from "lucide-react";
-
-const features = [
-  {
-    icon: Users,
-    title: "Social QR",
-    description:
-      "Connect social profiles, share contact info, and grow your network with dynamic social QR codes.",
-    color: "from-blue-500/20 to-cyan-500/20",
-    iconColor: "text-blue-400",
-  },
-  {
-    icon: Briefcase,
-    title: "Business QR",
-    description:
-      "Professional QR codes for vCards, digital business cards, LinkedIn profiles, and company pages.",
-    color: "from-primary/20 to-emerald-500/20",
-    iconColor: "text-primary",
-  },
-  {
-    icon: Wrench,
-    title: "Utility QR",
-    description:
-      "Create QR codes for WiFi access, payment links, app downloads, and everyday utility tasks.",
-    color: "from-purple-500/20 to-pink-500/20",
-    iconColor: "text-purple-400",
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Restaurant QR",
-    description:
-      "Digital menus, ordering systems, table reservations, and review collections — all via QR.",
-    color: "from-orange-500/20 to-yellow-500/20",
-    iconColor: "text-orange-400",
-  },
-  {
-    icon: Calendar,
-    title: "Event QR",
-    description:
-      "Event registration, ticketing, scheduling, and calendar integrations with dynamic QR codes.",
-    color: "from-rose-500/20 to-pink-500/20",
-    iconColor: "text-rose-400",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics",
-    description:
-      "Track scans, locations, devices, and engagement metrics in real-time with advanced analytics.",
-    color: "from-teal-500/20 to-green-500/20",
-    iconColor: "text-teal-400",
-  },
-];
+import { useLanguage } from "@/components/language-provider";
 
 const container = {
   hidden: { opacity: 0 },
@@ -75,6 +25,53 @@ const item = {
 };
 
 export function Features() {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Users,
+      title: t.features.social.title,
+      description: t.features.social.desc,
+      color: "from-blue-500/20 to-cyan-500/20",
+      iconColor: "text-blue-400",
+    },
+    {
+      icon: Briefcase,
+      title: t.features.business.title,
+      description: t.features.business.desc,
+      color: "from-primary/20 to-emerald-500/20",
+      iconColor: "text-primary",
+    },
+    {
+      icon: Wrench,
+      title: t.features.utility.title,
+      description: t.features.utility.desc,
+      color: "from-purple-500/20 to-pink-500/20",
+      iconColor: "text-purple-400",
+    },
+    {
+      icon: UtensilsCrossed,
+      title: t.features.restaurant.title,
+      description: t.features.restaurant.desc,
+      color: "from-orange-500/20 to-yellow-500/20",
+      iconColor: "text-orange-400",
+    },
+    {
+      icon: Calendar,
+      title: t.features.event.title,
+      description: t.features.event.desc,
+      color: "from-rose-500/20 to-pink-500/20",
+      iconColor: "text-rose-400",
+    },
+    {
+      icon: BarChart3,
+      title: t.features.analytics.title,
+      description: t.features.analytics.desc,
+      color: "from-teal-500/20 to-green-500/20",
+      iconColor: "text-teal-400",
+    },
+  ];
+
   return (
     <section id="features" className="py-24 sm:py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,16 +84,15 @@ export function Features() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
             <span className="text-xs font-medium text-primary uppercase tracking-wider">
-              Features
+              {t.features.badge}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Everything You Need for{" "}
-            <span className="gradient-text">Professional QR</span>
+            {t.features.title1}{" "}
+            <span className="gradient-text">{t.features.title2}</span>
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            From simple URLs to complex dynamic campaigns — one platform, endless
-            possibilities.
+            {t.features.subtitle}
           </p>
         </motion.div>
 
@@ -107,7 +103,7 @@ export function Features() {
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {features.map((feature, index) => {
+          {features.map((feature) => {
             const Icon = feature.icon;
             return (
               <motion.div

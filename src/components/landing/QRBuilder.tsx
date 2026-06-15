@@ -4,8 +4,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import QRCodeStyling, { type Options } from "qr-code-styling";
 import { Loader2, RefreshCw } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 export function QRBuilder() {
+  const { t } = useLanguage();
   const [text, setText] = useState("https://qruniverse.com");
   const [qrCode, setQrCode] = useState<QRCodeStyling | null>(null);
   const [isReady, setIsReady] = useState(false);
@@ -83,10 +85,10 @@ export function QRBuilder() {
   }, [text, qrCode, updateQR]);
 
   const presets = [
-    { label: "🌐 Website", value: "https://example.com" },
-    { label: "📱 WiFi", value: "WIFI:S:MyNetwork;T:WPA;P:mypassword;;" },
-    { label: "📧 Email", value: "mailto:hello@qruniverse.com" },
-    { label: "📍 Location", value: "https://maps.google.com/?q=40.7128,-74.0060" },
+    { label: `🌐 ${t.hero.presets.website}`, value: "https://example.com" },
+    { label: `📱 ${t.hero.presets.wifi}`, value: "WIFI:S:MyNetwork;T:WPA;P:mypassword;;" },
+    { label: `📧 ${t.hero.presets.email}`, value: "mailto:hello@qruniverse.com" },
+    { label: `📍 ${t.hero.presets.location}`, value: "https://maps.google.com/?q=40.7128,-74.0060" },
   ];
 
   return (
@@ -99,7 +101,7 @@ export function QRBuilder() {
       <div className="flex items-center gap-2 mb-6">
         <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
         <h3 className="text-sm font-medium text-text-secondary uppercase tracking-wider">
-          Live Preview
+          {t.hero.livePreview}
         </h3>
       </div>
 
@@ -126,7 +128,7 @@ export function QRBuilder() {
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Enter URL or text..."
+            placeholder={t.hero.placeholder}
             className="w-full px-4 py-3 rounded-xl bg-bg-dark border border-border-muted text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-200"
           />
           <button

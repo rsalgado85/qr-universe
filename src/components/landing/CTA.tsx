@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 export function CTA() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-24 sm:py-32 relative">
       {/* Background orbs */}
@@ -28,7 +31,7 @@ export function CTA() {
           >
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm text-primary font-medium">
-              Start creating in seconds
+              {t.cta.badge}
             </span>
           </motion.div>
 
@@ -39,9 +42,9 @@ export function CTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Ready to Create QR Codes
+            {t.cta.title1}
             <br />
-            <span className="gradient-text">That Stand Out?</span>
+            <span className="gradient-text">{t.cta.title2}</span>
           </motion.h2>
 
           <motion.p
@@ -51,8 +54,7 @@ export function CTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Join thousands of professionals who trust QR Universe. Start free,
-            no credit card required.
+            {t.cta.subtitle}
           </motion.p>
 
           <motion.div
@@ -66,14 +68,14 @@ export function CTA() {
               href="#pricing"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-semibold text-lg transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
             >
-              Start Creating Free
+              {t.cta.cta1}
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#templates"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl glass text-text-primary font-semibold text-lg transition-all duration-300 hover:bg-bg-card-hover"
             >
-              Browse Templates
+              {t.cta.cta2}
             </a>
           </motion.div>
         </motion.div>

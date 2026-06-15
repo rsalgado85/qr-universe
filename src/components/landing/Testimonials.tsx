@@ -2,41 +2,24 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
-const testimonials = [
-  {
-    quote:
-      "QR Universe transformed how we handle our restaurant menus. The analytics alone have helped us optimize our offerings based on what people actually look at.",
-    name: "Sarah Chen",
-    role: "Owner, The Golden Table",
-    avatar: "SC",
-    color: "from-primary to-emerald-500",
-  },
-  {
-    quote:
-      "We've tried every QR generator out there. None come close to the customization and brand control QR Universe gives us. It's become essential to our marketing stack.",
-    name: "Marcus Rivera",
-    role: "Marketing Director, BrandWave",
-    avatar: "MR",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    quote:
-      "The dynamic QR codes with real-time analytics changed our event game. We now know exactly which touchpoints drive engagement during our conferences.",
-    name: "Emily Park",
-    role: "Event Manager, TechCon Global",
-    avatar: "EP",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    quote:
-      "As a real estate agent, I need my QR codes to look premium. QR Universe delivers exactly that — my open house signs have never gotten more scans.",
-    name: "David Thompson",
-    role: "Real Estate Agent, Premier Homes",
-    avatar: "DT",
-    color: "from-gold to-orange-500",
-  },
+const avatarColors = [
+  "from-primary to-emerald-500",
+  "from-purple-500 to-pink-500",
+  "from-blue-500 to-cyan-500",
+  "from-gold to-orange-500",
 ];
+
+function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .map((w) => w[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
 
 const container = {
   hidden: { opacity: 0 },
@@ -52,6 +35,8 @@ const card = {
 };
 
 export function Testimonials() {
+  const { t } = useLanguage();
+
   return (
     <section id="testimonials" className="py-24 sm:py-32 relative">
       {/* Background */}
@@ -67,16 +52,15 @@ export function Testimonials() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
             <span className="text-xs font-medium text-gold uppercase tracking-wider">
-              Testimonials
+              {t.testimonials.badge}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Trusted by{" "}
-            <span className="gradient-text">Thousands</span>
+            {t.testimonials.title1}{" "}
+            <span className="gradient-text">{t.testimonials.title2}</span>
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Hear from professionals who use QR Universe every day to create
-            beautiful, high-performing QR experiences.
+            {t.testimonials.subtitle}
           </p>
         </motion.div>
 
@@ -87,9 +71,9 @@ export function Testimonials() {
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {testimonials.map((t) => (
+          {t.testimonials.quotes.map((q, i) => (
             <motion.div
-              key={t.name}
+              key={i}
               variants={card}
               className="relative p-6 sm:p-8 rounded-2xl glass hover:bg-bg-card-hover/50 transition-all duration-300"
             >
@@ -103,17 +87,17 @@ export function Testimonials() {
                 ))}
               </div>
               <blockquote className="text-text-primary text-base leading-relaxed mb-6">
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{q.text}&rdquo;
               </blockquote>
               <div className="flex items-center gap-4">
                 <div
-                  className={`w-11 h-11 rounded-xl bg-gradient-to-br ${t.color} flex items-center justify-center text-sm font-bold text-white`}
+                  className={`w-11 h-11 rounded-xl bg-gradient-to-br ${avatarColors[i % avatarColors.length]} flex items-center justify-center text-sm font-bold text-white`}
                 >
-                  {t.avatar}
+                  {getInitials(q.name)}
                 </div>
                 <div>
-                  <p className="font-semibold text-sm">{t.name}</p>
-                  <p className="text-text-secondary text-xs">{t.role}</p>
+                  <p className="font-semibold text-sm">{q.name}</p>
+                  <p className="text-text-secondary text-xs">{q.role}</p>
                 </div>
               </div>
             </motion.div>

@@ -4,8 +4,11 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
 import { QRBuilder } from "./QRBuilder";
+import { useLanguage } from "@/components/language-provider";
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background grid */}
@@ -38,7 +41,7 @@ export function Hero() {
           >
             <Sparkles className="w-4 h-4 text-gold" />
             <span className="text-sm text-text-secondary">
-              Professional QR Platform
+              {t.hero.badge}
             </span>
           </motion.div>
 
@@ -48,9 +51,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
           >
-            Create QR Codes
+            {t.hero.title1}
             <br />
-            <span className="gradient-text">That Stand Out</span>
+            <span className="gradient-text">{t.hero.title2}</span>
           </motion.h1>
 
           <motion.p
@@ -59,9 +62,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
           >
-            Not just a QR generator — a visual platform to create, customize,
-            manage, and share professional QR experiences that captivate your
-            audience.
+            {t.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -74,14 +75,14 @@ export function Hero() {
               href="#pricing"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-semibold text-lg transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
             >
-              Start Creating
+              {t.hero.cta1}
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#templates"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl glass text-text-primary font-semibold text-lg transition-all duration-300 hover:bg-bg-card-hover hover:border-border-muted"
             >
-              View Templates
+              {t.hero.cta2}
               <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
             </a>
           </motion.div>

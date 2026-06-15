@@ -11,6 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useLanguage } from "@/components/language-provider";
 
 const weeklyData = [
   { name: "Mon", scans: 240, unique: 180 },
@@ -22,16 +23,17 @@ const weeklyData = [
   { name: "Sun", scans: 580, unique: 490 },
 ];
 
-const stats = [
-  { label: "Total Scans", value: "3,000", change: "+12.5%", up: true },
-  { label: "Unique Users", value: "2,490", change: "+8.2%", up: true },
-  { label: "CTR", value: "24.8%", change: "+3.1%", up: true },
-  { label: "Avg. Time", value: "42s", change: "-5.3%", up: false },
-];
-
 export function AnalyticsShowcase() {
+  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
+
+  const stats = [
+    { label: t.analytics_showcase.totalScans, value: "3,000", change: "+12.5%", up: true },
+    { label: t.analytics_showcase.uniqueVisitors, value: "2,490", change: "+8.2%", up: true },
+    { label: "CTR", value: "24.8%", change: "+3.1%", up: true },
+    { label: "Avg. Time", value: "42s", change: "-5.3%", up: false },
+  ];
 
   return (
     <section id="analytics" className="py-24 sm:py-32 relative">
@@ -45,16 +47,15 @@ export function AnalyticsShowcase() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
             <span className="text-xs font-medium text-primary uppercase tracking-wider">
-              Analytics
+              {t.analytics_showcase.badge}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Powerful{" "}
-            <span className="gradient-text">Scan Analytics</span>
+            {t.analytics_showcase.title1}{" "}
+            <span className="gradient-text">{t.analytics_showcase.title2}</span>
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Understand your audience with detailed scan metrics, geolocation
-            data, device insights, and real-time engagement tracking.
+            {t.analytics_showcase.subtitle}
           </p>
         </motion.div>
 
@@ -155,11 +156,11 @@ export function AnalyticsShowcase() {
           <div className="flex items-center gap-6 mt-4 justify-center">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-primary" />
-              <span className="text-sm text-text-secondary">Total Scans</span>
+              <span className="text-sm text-text-secondary">{t.analytics_showcase.totalScans}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-gold" />
-              <span className="text-sm text-text-secondary">Unique Users</span>
+              <span className="text-sm text-text-secondary">{t.analytics_showcase.uniqueVisitors}</span>
             </div>
           </div>
         </motion.div>

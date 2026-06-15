@@ -1,34 +1,33 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
-
-const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Templates", href: "#templates" },
-  { label: "Analytics", href: "#analytics" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-];
+import { Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
 
 export function Header() {
+  const { theme, setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    setMounted(true);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark", !isDark);
-  };
+  const navLinks = [
+    { label: t.nav.features, href: "#features" },
+    { label: t.nav.templates, href: "#templates" },
+    { label: t.nav.analytics, href: "#analytics" },
+    { label: t.nav.faq, href: "#faq" },
+  ];
+
+  const toggleLang = () => setLanguage(language === "en" ? "es" : "en");
 
   return (
     <header
@@ -65,45 +64,68 @@ export function Header() {
 
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center gap-3">
+            {/* Language switcher */}
             <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-card transition-all duration-200"
-              aria-label="Toggle theme"
+              onClick={toggleLang}
+              className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-card transition-all duration-200 flex items-center gap-1.5"
+              aria-label="Toggle language"
+              title={t.common.language}
             >
-              {isDark ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
+              <Globe className="w-4 h-4" />
+              <span className="text-xs font-medium">{language === "en" ? "EN" : "ES"}</span>
             </button>
+
+            {/* Theme toggle */}
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-card transition-all duration-200"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-4 h-4" />
+                ) : (
+                  <Moon className="w-4 h-4" />
+                )}
+              </button>
+            )}
 
             <a
               href="#"
               className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
             >
-              Sign In
+              {t.header.signIn}
             </a>
             <a
-              href="#pricing"
+              href="#features"
               className="px-5 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
             >
-              Get Started
+              {t.header.getStarted}
             </a>
           </div>
 
           {/* Mobile hamburger */}
           <div className="flex lg:hidden items-center gap-2">
             <button
-              onClick={toggleTheme}
+              onClick={toggleLang}
               className="p-2 rounded-lg text-text-secondary hover:text-text-primary transition-all duration-200"
-              aria-label="Toggle theme"
+              aria-label="Toggle language"
             >
-              {isDark ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
+              <Globe className="w-4 h-4" />
             </button>
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-lg text-text-secondary hover:text-text-primary transition-all duration-200"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-4 h-4" />
+                ) : (
+                  <Moon className="w-4 h-4" />
+                )}
+              </button>
+            )}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               className="p-2 rounded-lg text-text-secondary hover:text-text-primary transition-all duration-200"
@@ -145,13 +167,14 @@ export function Header() {
                 href="#"
                 className="block text-text-secondary hover:text-text-primary transition-colors py-2"
               >
-                Sign In
+                {t.header.signIn}
               </a>
               <a
-                href="#pricing"
+                href="#features"
+                onClick={() => setIsMobileOpen(false)}
                 className="block w-full text-center px-5 py-3 rounded-xl bg-primary text-white font-semibold transition-all duration-300 hover:bg-primary-light"
               >
-                Get Started
+                {t.header.getStarted}
               </a>
             </div>
           </motion.div>
