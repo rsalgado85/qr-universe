@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   AreaChart,
@@ -13,26 +13,29 @@ import {
 } from "recharts";
 import { useLanguage } from "@/components/language-provider";
 
-const weeklyData = [
-  { name: "Mon", scans: 240, unique: 180 },
-  { name: "Tue", scans: 320, unique: 260 },
-  { name: "Wed", scans: 280, unique: 220 },
-  { name: "Thu", scans: 450, unique: 380 },
-  { name: "Fri", scans: 520, unique: 440 },
-  { name: "Sat", scans: 610, unique: 520 },
-  { name: "Sun", scans: 580, unique: 490 },
-];
-
 export function AnalyticsShowcase() {
   const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
+  const weeklyData = useMemo(() => {
+    const days = t.analytics_showcase.days;
+    return [
+      { name: days[0], scans: 240, unique: 180 },
+      { name: days[1], scans: 320, unique: 260 },
+      { name: days[2], scans: 280, unique: 220 },
+      { name: days[3], scans: 450, unique: 380 },
+      { name: days[4], scans: 520, unique: 440 },
+      { name: days[5], scans: 610, unique: 520 },
+      { name: days[6], scans: 580, unique: 490 },
+    ];
+  }, [t]);
+
   const stats = [
     { label: t.analytics_showcase.totalScans, value: "3,000", change: "+12.5%", up: true },
     { label: t.analytics_showcase.uniqueVisitors, value: "2,490", change: "+8.2%", up: true },
-    { label: "CTR", value: "24.8%", change: "+3.1%", up: true },
-    { label: "Avg. Time", value: "42s", change: "-5.3%", up: false },
+    { label: t.analytics_showcase.ctr, value: "24.8%", change: "+3.1%", up: true },
+    { label: t.analytics_showcase.avgTime, value: "42s", change: "-5.3%", up: false },
   ];
 
   return (
@@ -156,11 +159,11 @@ export function AnalyticsShowcase() {
           <div className="flex items-center gap-6 mt-4 justify-center">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-primary" />
-              <span className="text-sm text-text-secondary">{t.analytics_showcase.totalScans}</span>
+              <span className="text-sm text-text-secondary">{t.analytics_showcase.scans}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-gold" />
-              <span className="text-sm text-text-secondary">{t.analytics_showcase.uniqueVisitors}</span>
+              <span className="text-sm text-text-secondary">{t.analytics_showcase.uniqueVisitorsLegend}</span>
             </div>
           </div>
         </motion.div>

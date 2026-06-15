@@ -134,7 +134,7 @@ export function QRBuilder() {
           <button
             onClick={updateQR}
             className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-text-secondary hover:text-primary hover:bg-primary/10 transition-colors"
-            title="Refresh QR"
+            title={t.hero.refresh || "Refresh QR"}
           >
             <RefreshCw className="w-4 h-4" />
           </button>

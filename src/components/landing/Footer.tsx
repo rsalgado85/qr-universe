@@ -20,8 +20,8 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-text-primary mb-3">{t.footer.product}</h4>
             <ul className="space-y-2">
-              <li><Link href="/#features" className="text-text-secondary hover:text-text-primary text-sm transition-colors">Features</Link></li>
-              <li><Link href="/#templates" className="text-text-secondary hover:text-text-primary text-sm transition-colors">Templates</Link></li>
+              <li><Link href="/#features" className="text-text-secondary hover:text-text-primary text-sm transition-colors">{t.nav.features}</Link></li>
+              <li><Link href="/#templates" className="text-text-secondary hover:text-text-primary text-sm transition-colors">{t.nav.templates}</Link></li>
             </ul>
           </div>
           <div>

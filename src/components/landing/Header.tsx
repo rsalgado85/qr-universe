@@ -68,7 +68,7 @@ export function Header() {
             <button
               onClick={toggleLang}
               className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-card transition-all duration-200 flex items-center gap-1.5"
-              aria-label="Toggle language"
+              aria-label={t.common.ariaLang}
               title={t.common.language}
             >
               <Globe className="w-4 h-4" />
@@ -80,7 +80,7 @@ export function Header() {
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-card transition-all duration-200"
-                aria-label="Toggle theme"
+                aria-label={t.common.ariaTheme}
               >
                 {theme === "dark" ? (
                   <Sun className="w-4 h-4" />
@@ -109,7 +109,7 @@ export function Header() {
             <button
               onClick={toggleLang}
               className="p-2 rounded-lg text-text-secondary hover:text-text-primary transition-all duration-200"
-              aria-label="Toggle language"
+              aria-label={t.common.ariaLang}
             >
               <Globe className="w-4 h-4" />
             </button>
@@ -117,7 +117,7 @@ export function Header() {
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="p-2 rounded-lg text-text-secondary hover:text-text-primary transition-all duration-200"
-                aria-label="Toggle theme"
+                aria-label={t.common.ariaTheme}
               >
                 {theme === "dark" ? (
                   <Sun className="w-4 h-4" />
@@ -129,7 +129,7 @@ export function Header() {
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               className="p-2 rounded-lg text-text-secondary hover:text-text-primary transition-all duration-200"
-              aria-label="Toggle menu"
+              aria-label={t.common.ariaMenu}
             >
               {isMobileOpen ? (
                 <X className="w-5 h-5" />
