@@ -42,7 +42,7 @@ export function AnalyticsShowcase() {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
@@ -63,7 +63,7 @@ export function AnalyticsShowcase() {
           className="glass-strong rounded-2xl p-6 sm:p-8"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ margin: "-50px" }}
           transition={{ duration: 0.7 }}
         >
           {/* Stats row */}

@@ -20,7 +20,7 @@ export function FAQ() {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
@@ -38,7 +38,7 @@ export function FAQ() {
           className="space-y-3"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
           {t.faq.q.map((faq, index) => (

@@ -19,13 +19,13 @@ export function CTA() {
           className="glass-strong rounded-3xl p-8 sm:p-12 lg:p-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{  }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
@@ -39,7 +39,7 @@ export function CTA() {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{  }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             {t.cta.title1}
@@ -51,7 +51,7 @@ export function CTA() {
             className="text-lg text-text-secondary max-w-xl mx-auto mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{  }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             {t.cta.subtitle}
@@ -61,7 +61,7 @@ export function CTA() {
             className="flex flex-col sm:flex-row items-center gap-4 justify-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{  }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <a
