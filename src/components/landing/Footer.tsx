@@ -21,7 +21,6 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-text-primary mb-3">{t.footer.product}</h4>
             <ul className="space-y-2">
               <li><Link href="/#features" className="text-text-secondary hover:text-text-primary text-sm transition-colors">Features</Link></li>
-              <li><Link href="/#pricing" className="text-text-secondary hover:text-text-primary text-sm transition-colors">Pricing</Link></li>
               <li><Link href="/#templates" className="text-text-secondary hover:text-text-primary text-sm transition-colors">Templates</Link></li>
             </ul>
           </div>
