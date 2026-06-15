@@ -26,6 +26,7 @@ export function Header() {
     { label: t.nav.templates, href: "/#templates" },
     { label: t.nav.analytics, href: "/#analytics" },
     { label: t.nav.faq, href: "/#faq" },
+    { label: t.nav.about || "About", href: "/about" },
   ];
 
   const toggleLang = () => setLanguage(language === "en" ? "es" : "en");

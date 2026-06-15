@@ -6,6 +6,7 @@ export const translations = {
       templates: "Templates",
       analytics: "Analytics",
       faq: "FAQ",
+      about: "About",
     },
     hero: {
       badge: "Professional QR Platform",
@@ -286,6 +287,7 @@ export const translations = {
       templates: "Plantillas",
       analytics: "Analíticas",
       faq: "FAQ",
+      about: "Acerca de",
     },
     hero: {
       badge: "Plataforma QR Profesional",
