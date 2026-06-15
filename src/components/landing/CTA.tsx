@@ -65,7 +65,7 @@ export function CTA() {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <a
-              href="#pricing"
+              href="#features"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-semibold text-lg transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
             >
               {t.cta.cta1}
