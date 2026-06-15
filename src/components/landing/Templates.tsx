@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import {
   UtensilsCrossed,
   Building2,
@@ -28,9 +29,11 @@ const cardItem = {
 
 export function Templates() {
   const { t } = useLanguage();
+  const router = useRouter();
 
   const templates = [
     {
+      id: "restaurant",
       icon: UtensilsCrossed,
       title: t.templates.categories.restaurants,
       description: t.templates.descriptions.restaurants,
@@ -38,6 +41,7 @@ export function Templates() {
       gradient: "from-orange-500/10 to-yellow-500/10",
     },
     {
+      id: "realEstate",
       icon: Building2,
       title: t.templates.categories.realEstate,
       description: t.templates.descriptions.realEstate,
@@ -45,6 +49,7 @@ export function Templates() {
       gradient: "from-blue-500/10 to-cyan-500/10",
     },
     {
+      id: "events",
       icon: CalendarDays,
       title: t.templates.categories.events,
       description: t.templates.descriptions.events,
@@ -52,6 +57,7 @@ export function Templates() {
       gradient: "from-purple-500/10 to-pink-500/10",
     },
     {
+      id: "personalBrand",
       icon: UserCircle2,
       title: t.templates.categories.personalBrand,
       description: t.templates.descriptions.personalBrand,
@@ -59,6 +65,7 @@ export function Templates() {
       gradient: "from-primary/10 to-emerald-500/10",
     },
     {
+      id: "influencers",
       icon: TrendingUp,
       title: t.templates.categories.influencers,
       description: t.templates.descriptions.influencers,
@@ -66,6 +73,7 @@ export function Templates() {
       gradient: "from-pink-500/10 to-rose-500/10",
     },
     {
+      id: "recruiters",
       icon: UserCheck,
       title: t.templates.categories.recruiters,
       description: t.templates.descriptions.recruiters,
@@ -73,6 +81,7 @@ export function Templates() {
       gradient: "from-green-500/10 to-teal-500/10",
     },
     {
+      id: "corporate",
       icon: Briefcase,
       title: t.templates.categories.corporate,
       description: t.templates.descriptions.corporate,
@@ -121,6 +130,7 @@ export function Templates() {
               <motion.div
                 key={template.title}
                 variants={cardItem}
+                onClick={() => router.push(`/studio?template=${template.id}`)}
                 className="group relative p-6 rounded-2xl glass hover:bg-bg-card-hover/50 transition-all duration-300 cursor-pointer hover:border-border-muted"
               >
                 {/* Gradient on hover */}

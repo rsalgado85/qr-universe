@@ -21,10 +21,11 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { label: t.nav.features, href: "#features" },
-    { label: t.nav.templates, href: "#templates" },
-    { label: t.nav.analytics, href: "#analytics" },
-    { label: t.nav.faq, href: "#faq" },
+    { label: t.nav.studio || "Studio", href: "/studio" },
+    { label: t.nav.features, href: "/#features" },
+    { label: t.nav.templates, href: "/#templates" },
+    { label: t.nav.analytics, href: "/#analytics" },
+    { label: t.nav.faq, href: "/#faq" },
   ];
 
   const toggleLang = () => setLanguage(language === "en" ? "es" : "en");
@@ -90,12 +91,6 @@ export function Header() {
               </button>
             )}
 
-            <a
-              href="#"
-              className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
-            >
-              {t.header.signIn}
-            </a>
             <a
               href="/studio"
               className="px-5 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
@@ -163,12 +158,6 @@ export function Header() {
                 </a>
               ))}
               <hr className="border-border-subtle" />
-              <a
-                href="#"
-                className="block text-text-secondary hover:text-text-primary transition-colors py-2"
-              >
-                {t.header.signIn}
-              </a>
               <a
                 href="/studio"
                 onClick={() => setIsMobileOpen(false)}

@@ -105,3 +105,72 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-secondary);
 }
+
+/* ── Studio light-mode surface utilities ── */
+.surface-subtle {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+.light .surface-subtle {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.surface-hover:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.light .surface-hover:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.surface-active {
+  background: rgba(255, 255, 255, 0.1);
+}
+.light .surface-active {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.input-field {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+.light .input-field {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.size-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-secondary);
+}
+.light .size-btn {
+  background: rgba(0, 0, 0, 0.03);
+}
+.size-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.light .size-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.export-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+.light .export-btn {
+  background: rgba(0, 0, 0, 0.04);
+}
+.export-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.light .export-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.color-swatch {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.light .color-swatch {
+  border-color: rgba(0, 0, 0, 0.15);
+}

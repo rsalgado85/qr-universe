@@ -1,6 +1,7 @@
 export const translations = {
   en: {
     nav: {
+      studio: "Studio",
       features: "Features",
       templates: "Templates",
       analytics: "Analytics",
@@ -192,8 +193,10 @@ export const translations = {
       logo: {
         title: "Logo",
         upload: "Upload Logo",
+        change: "Change",
         remove: "Remove",
         hint: "PNG or SVG recommended",
+        customHint: "Custom logo active — tap remove to restore template icon",
       },
       shapes: {
         title: "Shape",
@@ -230,13 +233,20 @@ export const translations = {
         svg: "SVG",
         pdf: "PDF",
         downloading: "Downloading...",
+        share: "Share",
+        sharing: "Sharing...",
       },
       stats: {
         title: "Statistics",
         scans: "Total Scans",
+        total: "Total",
         today: "Today",
         thisMonth: "This Month",
+        month: "Month",
       },
+      loading: "Loading QR...",
+      dots: { title: "Dot Style" },
+      corners: { title: "Corner Style", outer: "Outer", inner: "Inner" },
     },
     common: {
       language: "Language",
@@ -250,6 +260,7 @@ export const translations = {
 
   es: {
     nav: {
+      studio: "Estudio",
       features: "Funcionalidades",
       templates: "Plantillas",
       analytics: "Analíticas",
@@ -442,7 +453,9 @@ export const translations = {
         title: "Logo",
         upload: "Subir Logo",
         remove: "Quitar",
+        change: "Cambiar",
         hint: "PNG o SVG recomendado",
+        customHint: "Logo personalizado activo — toca quitar para restaurar icono de plantilla",
       },
       shapes: {
         title: "Forma",
@@ -479,13 +492,20 @@ export const translations = {
         svg: "SVG",
         pdf: "PDF",
         downloading: "Descargando...",
+        share: "Compartir",
+        sharing: "Compartiendo...",
       },
       stats: {
         title: "Estadísticas",
         scans: "Escaneos Totales",
+        total: "Total",
         today: "Hoy",
         thisMonth: "Este Mes",
+        month: "Mes",
       },
+      loading: "Cargando QR...",
+      dots: { title: "Estilo de Puntos" },
+      corners: { title: "Estilo de Esquinas", outer: "Exterior", inner: "Interior" },
     },
     common: {
       language: "Idioma",
