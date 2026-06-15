@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   QrCode,
@@ -18,6 +19,35 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
+
+/* ────────────────────────────────────────────
+   QRAvatar — tiny QR code pointing to LinkedIn
+   Dynamically imports qr-code-styling via
+   useEffect so it stays SSR-safe.
+   ──────────────────────────────────────────── */
+function QRAvatar({ url }: { url: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let cancelled = false;
+    import("qr-code-styling").then(({ default: QRCodeStyling }) => {
+      if (cancelled || !ref.current) return;
+      const qr = new QRCodeStyling({
+        width: 160,
+        height: 160,
+        data: url,
+        dotsOptions: { color: "#060B15", type: "rounded" as const },
+        cornersSquareOptions: { color: "#060B15", type: "extra-rounded" as const },
+        cornersDotOptions: { color: "#060B15", type: "dot" as const },
+        backgroundOptions: { color: "#FFFFFF" },
+        imageOptions: { crossOrigin: "anonymous", margin: 0 },
+      });
+      ref.current.innerHTML = "";
+      qr.append(ref.current);
+    });
+    return () => { cancelled = true; };
+  }, [url]);
+  return <div ref={ref} className="w-full h-full flex items-center justify-center p-2" />;
+}
 
 /* ────────────────────────────────────────────
    Localised content (like terms/privacy pages)
@@ -257,8 +287,8 @@ export default function AboutPage() {
             className="relative flex-shrink-0"
           >
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-gradient-to-br from-primary to-gold p-[3px] shadow-xl shadow-primary/20">
-              <div className="w-full h-full rounded-2xl bg-bg-card flex items-center justify-center">
-                <QrCode size={64} className="text-primary" />
+              <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center overflow-hidden">
+                <QRAvatar url="https://www.linkedin.com/in/robinsonsalgado" />
               </div>
             </div>
 
