@@ -4,6 +4,11 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useLanguage } from "@/components/language-provider";
 import {
   Link,
+  Wifi,
+  Mail,
+  Phone,
+  MessageSquare,
+  MapPin,
   Palette,
   Upload,
   Trash2,
@@ -160,11 +165,38 @@ const SIZE_OPTIONS = [
 ] as const;
 
 /* ───── helpers ───── */
+function computeQRData(state: QRState): string {
+  switch (state.qrType) {
+    case "url":
+      return state.url || "https://qr-universe.com";
+    case "wifi":
+      return `WIFI:T:${state.wifiEncryption || "WPA"};S:${state.wifiSsid || ""};P:${state.wifiPassword || ""};;`;
+    case "email": {
+      const params = new URLSearchParams();
+      if (state.emailSubject) params.set("subject", state.emailSubject);
+      if (state.emailBody) params.set("body", state.emailBody);
+      const qs = params.toString();
+      return `mailto:${state.emailTo || ""}${qs ? `?${qs}` : ""}`;
+    }
+    case "phone":
+      return `tel:${state.phoneNumber || ""}`;
+    case "sms":
+      return `smsto:${state.smsNumber || ""}:${state.smsMessage || ""}`;
+    case "location": {
+      const parts = [`geo:${state.locationLat || ""},${state.locationLng || ""}`];
+      if (state.locationName) parts.push(`?q=${encodeURIComponent(state.locationName)}`);
+      return parts.join("");
+    }
+    default:
+      return state.url || "https://qr-universe.com";
+  }
+}
+
 function buildQROptions(state: QRState) {
   const opts: Record<string, unknown> = {
     width: state.size,
     height: state.size,
-    data: state.url || "https://qr-universe.com",
+    data: computeQRData(state),
     dotsOptions: {
       color: state.fgColor,
       type: state.dotType,
@@ -203,8 +235,29 @@ function buildQROptions(state: QRState) {
 }
 
 /* ───── types ───── */
+type QRType = "url" | "wifi" | "email" | "phone" | "sms" | "location";
+
 interface QRState {
+  qrType: QRType;
   url: string;
+  // WiFi
+  wifiSsid: string;
+  wifiPassword: string;
+  wifiEncryption: string;
+  // Email
+  emailTo: string;
+  emailSubject: string;
+  emailBody: string;
+  // Phone
+  phoneNumber: string;
+  // SMS
+  smsNumber: string;
+  smsMessage: string;
+  // Location
+  locationLat: string;
+  locationLng: string;
+  locationName: string;
+  // Style
   fgColor: string;
   bgColor: string;
   useGradient: boolean;
@@ -233,7 +286,20 @@ export default function StudioPage() {
 
   /* state */
   const [state, setState] = useState<QRState>({
+    qrType: "url",
     url: "https://qr-universe.com",
+    wifiSsid: "",
+    wifiPassword: "",
+    wifiEncryption: "WPA",
+    emailTo: "",
+    emailSubject: "",
+    emailBody: "",
+    phoneNumber: "",
+    smsNumber: "",
+    smsMessage: "",
+    locationLat: "",
+    locationLng: "",
+    locationName: "",
     fgColor: "#14B8A6",
     bgColor: "#0F172A",
     useGradient: false,
@@ -451,20 +517,194 @@ export default function StudioPage() {
       <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-6 p-6">
         {/* ═══ LEFT PANEL ═══ */}
         <aside className="w-full lg:w-80 flex-shrink-0 space-y-5">
-          {/* URL input */}
+          {/* QR Type selector */}
           <div className="glass rounded-2xl p-5 space-y-4">
             <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
-              <Link className="w-4 h-4" />
-              {st.url.label}
+              <Shapes className="w-4 h-4" />
+              {st.qrType}
             </div>
-            <input
-              type="text"
-              value={state.url}
-              onChange={(e) => update("url", e.target.value)}
-              placeholder={st.url.placeholder}
-              className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-            />
+            <div className="grid grid-cols-3 gap-2">
+              {([
+                { type: "url" as QRType, icon: Link },
+                { type: "wifi" as QRType, icon: Wifi },
+                { type: "email" as QRType, icon: Mail },
+                { type: "phone" as QRType, icon: Phone },
+                { type: "sms" as QRType, icon: MessageSquare },
+                { type: "location" as QRType, icon: MapPin },
+              ]).map(({ type, icon: Icon }) => (
+                <button
+                  key={type}
+                  onClick={() => update("qrType", type)}
+                  className={`flex flex-col items-center gap-1 rounded-xl border transition-all p-2.5 ${
+                    state.qrType === type
+                      ? "surface-active border-primary/50 ring-1 ring-primary/30"
+                      : "surface-subtle hover:border-primary/40 surface-hover"
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  <span className="text-[10px] text-text-secondary">{st.types[type]}</span>
+                </button>
+              ))}
+            </div>
           </div>
+
+          {/* URL input (for URL type) */}
+          {state.qrType === "url" && (
+            <div className="glass rounded-2xl p-5 space-y-4">
+              <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
+                <Link className="w-4 h-4" />
+                {st.url.label}
+              </div>
+              <input
+                type="text"
+                value={state.url}
+                onChange={(e) => update("url", e.target.value)}
+                placeholder={st.url.placeholder}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+            </div>
+          )}
+
+          {/* WiFi fields */}
+          {state.qrType === "wifi" && (
+            <div className="glass rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
+                <Wifi className="w-4 h-4" />
+                WiFi
+              </div>
+              <input
+                type="text"
+                value={state.wifiSsid}
+                onChange={(e) => update("wifiSsid", e.target.value)}
+                placeholder={st.wifiSsid}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+              <input
+                type="text"
+                value={state.wifiPassword}
+                onChange={(e) => update("wifiPassword", e.target.value)}
+                placeholder={st.wifiPassword}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+              <div>
+                <label className="text-xs text-text-secondary mb-1.5 block">{st.wifiEncryption}</label>
+                <select
+                  value={state.wifiEncryption}
+                  onChange={(e) => update("wifiEncryption", e.target.value)}
+                  className="w-full rounded-xl input-field px-4 py-3 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all bg-bg-dark"
+                >
+                  {["WPA", "WPA2", "WEP", "nopass"].map((enc) => (
+                    <option key={enc} value={enc}>{enc}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
+
+          {/* Email fields */}
+          {state.qrType === "email" && (
+            <div className="glass rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
+                <Mail className="w-4 h-4" />
+                Email
+              </div>
+              <input
+                type="email"
+                value={state.emailTo}
+                onChange={(e) => update("emailTo", e.target.value)}
+                placeholder={st.emailTo}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+              <input
+                type="text"
+                value={state.emailSubject}
+                onChange={(e) => update("emailSubject", e.target.value)}
+                placeholder={st.emailSubject}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+              <textarea
+                value={state.emailBody}
+                onChange={(e) => update("emailBody", e.target.value)}
+                placeholder={st.emailBody}
+                rows={3}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none"
+              />
+            </div>
+          )}
+
+          {/* Phone fields */}
+          {state.qrType === "phone" && (
+            <div className="glass rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
+                <Phone className="w-4 h-4" />
+                {st.types.phone}
+              </div>
+              <input
+                type="tel"
+                value={state.phoneNumber}
+                onChange={(e) => update("phoneNumber", e.target.value)}
+                placeholder={st.phoneNumber}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+            </div>
+          )}
+
+          {/* SMS fields */}
+          {state.qrType === "sms" && (
+            <div className="glass rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
+                <MessageSquare className="w-4 h-4" />
+                {st.types.sms}
+              </div>
+              <input
+                type="tel"
+                value={state.smsNumber}
+                onChange={(e) => update("smsNumber", e.target.value)}
+                placeholder={st.smsNumber}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+              <textarea
+                value={state.smsMessage}
+                onChange={(e) => update("smsMessage", e.target.value)}
+                placeholder={st.smsMessage}
+                rows={3}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none"
+              />
+            </div>
+          )}
+
+          {/* Location fields */}
+          {state.qrType === "location" && (
+            <div className="glass rounded-2xl p-5 space-y-3">
+              <div className="flex items-center gap-2 text-sm font-medium text-text-secondary">
+                <MapPin className="w-4 h-4" />
+                {st.types.location}
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <input
+                  type="text"
+                  value={state.locationLat}
+                  onChange={(e) => update("locationLat", e.target.value)}
+                  placeholder={st.locationLat}
+                  className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                />
+                <input
+                  type="text"
+                  value={state.locationLng}
+                  onChange={(e) => update("locationLng", e.target.value)}
+                  placeholder={st.locationLng}
+                  className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                />
+              </div>
+              <input
+                type="text"
+                value={state.locationName}
+                onChange={(e) => update("locationName", e.target.value)}
+                placeholder={st.locationName}
+                className="w-full rounded-xl input-field px-4 py-3 text-sm placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+            </div>
+          )}
 
           {/* Templates */}
           <div className="glass rounded-2xl p-5 space-y-4">
