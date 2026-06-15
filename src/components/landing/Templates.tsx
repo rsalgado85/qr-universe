@@ -33,49 +33,49 @@ export function Templates() {
     {
       icon: UtensilsCrossed,
       title: t.templates.categories.restaurants,
-      description: "Digital menus, online ordering, and table booking QR codes.",
+      description: t.templates.descriptions.restaurants,
       color: "text-orange-400",
       gradient: "from-orange-500/10 to-yellow-500/10",
     },
     {
       icon: Building2,
       title: t.templates.categories.realEstate,
-      description: "Virtual tours, property listings, and agent contact codes.",
+      description: t.templates.descriptions.realEstate,
       color: "text-blue-400",
       gradient: "from-blue-500/10 to-cyan-500/10",
     },
     {
       icon: CalendarDays,
       title: t.templates.categories.events,
-      description: "Registration, ticketing, schedules, and live updates.",
+      description: t.templates.descriptions.events,
       color: "text-purple-400",
       gradient: "from-purple-500/10 to-pink-500/10",
     },
     {
       icon: UserCircle2,
       title: t.templates.categories.personalBrand,
-      description: "Portfolio, social links, and personal landing pages.",
+      description: t.templates.descriptions.personalBrand,
       color: "text-primary",
       gradient: "from-primary/10 to-emerald-500/10",
     },
     {
       icon: TrendingUp,
       title: t.templates.categories.influencers,
-      description: "Link trees, campaigns, merchandise, and engagement codes.",
+      description: t.templates.descriptions.influencers,
       color: "text-pink-400",
       gradient: "from-pink-500/10 to-rose-500/10",
     },
     {
       icon: UserCheck,
       title: t.templates.categories.recruiters,
-      description: "Job postings, application forms, and company culture codes.",
+      description: t.templates.descriptions.recruiters,
       color: "text-green-400",
       gradient: "from-green-500/10 to-teal-500/10",
     },
     {
       icon: Briefcase,
       title: t.templates.categories.corporate,
-      description: "Brand portals, investor relations, and internal tools.",
+      description: t.templates.descriptions.corporate,
       color: "text-indigo-400",
       gradient: "from-indigo-500/10 to-blue-500/10",
     },
@@ -136,7 +136,7 @@ export function Templates() {
                     {template.description}
                   </p>
                   <div className="flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1">
-                    Explore <ArrowRight className="w-3.5 h-3.5" />
+                    {t.templates.explore} <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
               </motion.div>

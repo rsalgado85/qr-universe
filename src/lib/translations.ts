@@ -34,6 +34,7 @@ export const translations = {
       title1: "Beautiful Templates for",
       title2: "Every Use Case",
       subtitle: "Start with a professionally designed template and customize it to match your brand.",
+      explore: "Explore",
       categories: {
         restaurants: "Restaurants",
         realEstate: "Real Estate",
@@ -42,6 +43,15 @@ export const translations = {
         influencers: "Influencers",
         recruiters: "Recruiters",
         corporate: "Corporate",
+      },
+      descriptions: {
+        restaurants: "Digital menus, online ordering, and table booking QR codes.",
+        realEstate: "Virtual tours, property listings, and agent contact codes.",
+        events: "Registration, ticketing, schedules, and live updates.",
+        personalBrand: "Portfolio, social links, and personal landing pages.",
+        influencers: "Link trees, campaigns, merchandise, and engagement codes.",
+        recruiters: "Job postings, application forms, and company culture codes.",
+        corporate: "Brand portals, investor relations, and internal tools.",
       },
     },
     analytics_showcase: {
@@ -143,6 +153,7 @@ export const translations = {
       title1: "Plantillas Hermosas para",
       title2: "Cada Caso de Uso",
       subtitle: "Comienza con una plantilla diseñada profesionalmente y personalízala para que combine con tu marca.",
+      explore: "Explorar",
       categories: {
         restaurants: "Restaurantes",
         realEstate: "Inmobiliaria",
@@ -151,6 +162,15 @@ export const translations = {
         influencers: "Influencers",
         recruiters: "Reclutadores",
         corporate: "Corporativo",
+      },
+      descriptions: {
+        restaurants: "Menús digitales, pedidos en línea y códigos QR para reservas de mesa.",
+        realEstate: "Tours virtuales, listados de propiedades y códigos de contacto para agentes.",
+        events: "Registro, entradas, horarios y actualizaciones en vivo.",
+        personalBrand: "Portafolio, enlaces sociales y páginas de aterrizaje personales.",
+        influencers: "Árboles de enlaces, campañas, mercancía y códigos de interacción.",
+        recruiters: "Ofertas de empleo, formularios de solicitud y códigos de cultura empresarial.",
+        corporate: "Portales de marca, relaciones con inversores y herramientas internas.",
       },
     },
     analytics_showcase: {
