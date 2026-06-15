@@ -7,6 +7,7 @@ export const translations = {
       analytics: "Analytics",
       faq: "FAQ",
       about: "About",
+      donate: "Donate",
     },
     hero: {
       badge: "Professional QR Platform",
@@ -170,6 +171,7 @@ export const translations = {
       legal: "Legal",
       privacy: "Privacy",
       terms: "Terms",
+      donate: "Donate",
       madeWith: "Made with",
       by: "by QR Universe",
     },
@@ -270,6 +272,13 @@ export const translations = {
       dots: { title: "Dot Style" },
       corners: { title: "Corner Style", outer: "Outer", inner: "Inner" },
     },
+    donate: {
+      title: "Support QR Universe",
+      desc: "If you find this tool useful, consider supporting its development.",
+      chooseAmount: "Choose an amount (USD)",
+      paypalButton: "Donate with PayPal",
+      redirectNote: "You'll be redirected to PayPal to complete your donation.",
+    },
     common: {
       language: "Language",
       english: "English",
@@ -288,6 +297,7 @@ export const translations = {
       analytics: "Analíticas",
       faq: "FAQ",
       about: "Acerca de",
+      donate: "Donar",
     },
     hero: {
       badge: "Plataforma QR Profesional",
@@ -451,6 +461,7 @@ export const translations = {
       legal: "Legal",
       privacy: "Privacidad",
       terms: "Términos",
+      donate: "Donar",
       madeWith: "Hecho con",
       by: "por QR Universe",
     },
@@ -550,6 +561,13 @@ export const translations = {
       loading: "Cargando QR...",
       dots: { title: "Estilo de Puntos" },
       corners: { title: "Estilo de Esquinas", outer: "Exterior", inner: "Interior" },
+    },
+    donate: {
+      title: "Apoya QR Universe",
+      desc: "Si encuentras útil esta herramienta, considera apoyar su desarrollo.",
+      chooseAmount: "Elige un monto (USD)",
+      paypalButton: "Donar con PayPal",
+      redirectNote: "Serás redirigido a PayPal para completar tu donación.",
     },
     common: {
       language: "Idioma",

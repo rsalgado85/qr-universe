@@ -22,6 +22,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link href="/#features" className="text-text-secondary hover:text-text-primary text-sm transition-colors">{t.nav.features}</Link></li>
               <li><Link href="/#templates" className="text-text-secondary hover:text-text-primary text-sm transition-colors">{t.nav.templates}</Link></li>
+              <li><Link href="/donate" className="text-text-secondary hover:text-text-primary text-sm transition-colors">{t.footer.donate}</Link></li>
             </ul>
           </div>
           <div>
