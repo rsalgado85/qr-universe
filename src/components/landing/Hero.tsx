@@ -72,7 +72,7 @@ export function Hero() {
             transition={{ delay: 0.7, duration: 0.7 }}
           >
             <a
-              href="#features"
+              href="/studio"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-semibold text-lg transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
             >
               {t.hero.cta1}

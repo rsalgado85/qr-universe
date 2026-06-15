@@ -97,7 +97,7 @@ export function Header() {
               {t.header.signIn}
             </a>
             <a
-              href="#features"
+              href="/studio"
               className="px-5 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold transition-all duration-300 hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
             >
               {t.header.getStarted}
@@ -170,7 +170,7 @@ export function Header() {
                 {t.header.signIn}
               </a>
               <a
-                href="#features"
+                href="/studio"
                 onClick={() => setIsMobileOpen(false)}
                 className="block w-full text-center px-5 py-3 rounded-xl bg-primary text-white font-semibold transition-all duration-300 hover:bg-primary-light"
               >

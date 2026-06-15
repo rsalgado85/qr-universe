@@ -10,7 +10,8 @@ export const translations = {
       badge: "Professional QR Platform",
       title1: "Create QR Codes",
       title2: "That Stand Out",
-      subtitle: "Not just a QR generator — a visual platform to create, customize, manage, and share professional QR experiences that captivate your audience.",
+      subtitle:
+        "Not just a QR generator — a visual platform to create, customize, manage, and share professional QR experiences that captivate your audience.",
       cta1: "Start Creating",
       cta2: "View Templates",
       livePreview: "Live Preview",
@@ -22,19 +23,39 @@ export const translations = {
       badge: "Features",
       title1: "Everything You Need for",
       title2: "Professional QR",
-      subtitle: "From simple URLs to complex dynamic campaigns — one platform, endless possibilities.",
-      social: { title: "Social QR", desc: "Connect social profiles, share contact info, and grow your network with dynamic social QR codes." },
-      business: { title: "Business QR", desc: "Professional QR codes for vCards, digital business cards, LinkedIn profiles, and company pages." },
-      utility: { title: "Utility QR", desc: "Create QR codes for WiFi access, payment links, app downloads, and everyday utility tasks." },
-      restaurant: { title: "Restaurant QR", desc: "Digital menus, ordering systems, table reservations, and review collections — all via QR." },
-      event: { title: "Event QR", desc: "Event registration, ticketing, scheduling, and calendar integrations with dynamic QR codes." },
-      analytics: { title: "Smart Analytics", desc: "Track scans, geographic distribution, device types, and engagement metrics in real-time." },
+      subtitle:
+        "From simple URLs to complex dynamic campaigns — one platform, endless possibilities.",
+      social: {
+        title: "Social QR",
+        desc: "Connect social profiles, share contact info, and grow your network with dynamic social QR codes.",
+      },
+      business: {
+        title: "Business QR",
+        desc: "Professional QR codes for vCards, digital business cards, LinkedIn profiles, and company pages.",
+      },
+      utility: {
+        title: "Utility QR",
+        desc: "Create QR codes for WiFi access, payment links, app downloads, and everyday utility tasks.",
+      },
+      restaurant: {
+        title: "Restaurant QR",
+        desc: "Digital menus, ordering systems, table reservations, and review collections — all via QR.",
+      },
+      event: {
+        title: "Event QR",
+        desc: "Event registration, ticketing, scheduling, and calendar integrations with dynamic QR codes.",
+      },
+      analytics: {
+        title: "Smart Analytics",
+        desc: "Track scans, geographic distribution, device types, and engagement metrics in real-time.",
+      },
     },
     templates: {
       badge: "Templates",
       title1: "Beautiful Templates for",
       title2: "Every Use Case",
-      subtitle: "Start with a professionally designed template and customize it to match your brand.",
+      subtitle:
+        "Start with a professionally designed template and customize it to match your brand.",
       explore: "Explore",
       categories: {
         restaurants: "Restaurants",
@@ -59,7 +80,8 @@ export const translations = {
       badge: "Analytics",
       title1: "Powerful Insights at",
       title2: "Your Fingertips",
-      subtitle: "Track every scan, understand your audience, and optimize your QR campaigns with beautiful dashboards.",
+      subtitle:
+        "Track every scan, understand your audience, and optimize your QR campaigns with beautiful dashboards.",
       totalScans: "Total Scans",
       today: "Today",
       thisWeek: "This Week",
@@ -75,12 +97,29 @@ export const translations = {
       badge: "Testimonials",
       title1: "Trusted by",
       title2: "Professionals",
-      subtitle: "See why thousands of businesses and creators choose QR Universe for their QR needs.",
+      subtitle:
+        "See why thousands of businesses and creators choose QR Universe for their QR needs.",
       quotes: [
-        { text: "QR Universe transformed how we share our restaurant menus. The analytics help us understand which dishes get the most attention.", name: "María García", role: "Restaurant Owner" },
-        { text: "As a real estate agent, I need QR codes that look professional. The templates are gorgeous and the customization is endless.", name: "Carlos Mendoza", role: "Real Estate Agent" },
-        { text: "We use QR Universe for all our event badges and marketing materials. The live preview saves us so much time.", name: "Ana Torres", role: "Event Organizer" },
-        { text: "The API and bulk generation features are exactly what our marketing team needed. Highly recommended.", name: "David Kim", role: "Marketing Director" },
+        {
+          text: "QR Universe transformed how we share our restaurant menus. The analytics help us understand which dishes get the most attention.",
+          name: "María García",
+          role: "Restaurant Owner",
+        },
+        {
+          text: "As a real estate agent, I need QR codes that look professional. The templates are gorgeous and the customization is endless.",
+          name: "Carlos Mendoza",
+          role: "Real Estate Agent",
+        },
+        {
+          text: "We use QR Universe for all our event badges and marketing materials. The live preview saves us so much time.",
+          name: "Ana Torres",
+          role: "Event Organizer",
+        },
+        {
+          text: "The API and bulk generation features are exactly what our marketing team needed. Highly recommended.",
+          name: "David Kim",
+          role: "Marketing Director",
+        },
       ],
     },
     faq: {
@@ -88,19 +127,38 @@ export const translations = {
       title1: "Frequently Asked",
       title2: "Questions",
       q: [
-        { q: "What types of QR codes can I create?", a: "You can create QR codes for URLs, WiFi networks, email addresses, phone numbers, SMS, social media profiles, business cards, menus, events, tickets, and more. Each type is optimized for its specific use case." },
-        { q: "Are the QR codes dynamic or static?", a: "Both! Static QR codes encode data directly and never expire. Dynamic QR codes let you change the destination URL later and include scan analytics — perfect for marketing campaigns." },
-        { q: "Can I customize the design of my QR codes?", a: "Absolutely. You can customize colors, gradients, add logos, change dot and corner styles, add frames and borders, and choose from various shapes. The live preview updates in real-time as you design." },
-        { q: "What export formats are supported?", a: "You can download your QR codes as high-resolution PNG, SVG (scalable vector), or PDF. All exports are print-ready at 300 DPI." },
-        { q: "Is there an API for bulk QR code generation?", a: "Yes! Our API lets you generate QR codes programmatically in bulk. Perfect for marketing campaigns, product packaging, and enterprise workflows." },
-        { q: "Is QR Universe really free?", a: "Yes! QR Universe is 100% free. Create unlimited QR codes, access all templates, and use all customization options at no cost. We believe professional QR tools should be accessible to everyone." },
+        {
+          q: "What types of QR codes can I create?",
+          a: "You can create QR codes for URLs, WiFi networks, email addresses, phone numbers, SMS, social media profiles, business cards, menus, events, tickets, and more. Each type is optimized for its specific use case.",
+        },
+        {
+          q: "Are the QR codes dynamic or static?",
+          a: "Both! Static QR codes encode data directly and never expire. Dynamic QR codes let you change the destination URL later and include scan analytics — perfect for marketing campaigns.",
+        },
+        {
+          q: "Can I customize the design of my QR codes?",
+          a: "Absolutely. You can customize colors, gradients, add logos, change dot and corner styles, add frames and borders, and choose from various shapes. The live preview updates in real-time as you design.",
+        },
+        {
+          q: "What export formats are supported?",
+          a: "You can download your QR codes as high-resolution PNG, SVG (scalable vector), or PDF. All exports are print-ready at 300 DPI.",
+        },
+        {
+          q: "Is there an API for bulk QR code generation?",
+          a: "Yes! Our API lets you generate QR codes programmatically in bulk. Perfect for marketing campaigns, product packaging, and enterprise workflows.",
+        },
+        {
+          q: "Is QR Universe really free?",
+          a: "Yes! QR Universe is 100% free. Create unlimited QR codes, access all templates, and use all customization options at no cost. We believe professional QR tools should be accessible to everyone.",
+        },
       ],
     },
     cta: {
       badge: "Start creating in seconds",
       title1: "Ready to Create QR Codes",
       title2: "That Stand Out?",
-      subtitle: "Join thousands of professionals who trust QR Universe. Start free, no credit card required.",
+      subtitle:
+        "Join thousands of professionals who trust QR Universe. Start free, no credit card required.",
       cta1: "Start Creating Free",
       cta2: "Browse Templates",
     },
@@ -116,6 +174,69 @@ export const translations = {
     header: {
       signIn: "Sign In",
       getStarted: "Get Started",
+    },
+    studio: {
+      title: "QR Studio",
+      subtitle: "Design your perfect QR code with real-time preview.",
+      url: { label: "URL or Text", placeholder: "https://example.com" },
+      colors: {
+        title: "Colors",
+        foreground: "Foreground",
+        background: "Background",
+        gradient: "Gradient",
+        gradientStart: "Start",
+        gradientEnd: "End",
+        useGradient: "Use Gradient",
+        cornerColor: "Corner Color",
+      },
+      logo: {
+        title: "Logo",
+        upload: "Upload Logo",
+        remove: "Remove",
+        hint: "PNG or SVG recommended",
+      },
+      shapes: {
+        title: "Shape",
+        dots: "Dots",
+        corners: "Corners",
+        dotTypes: {
+          square: "Square",
+          rounded: "Rounded",
+          circle: "Circle",
+          dots: "Dots",
+          classy: "Classy",
+          classyRounded: "Classy Rounded",
+        },
+        cornerTypes: {
+          square: "Square",
+          rounded: "Rounded",
+          circle: "Circle",
+        },
+      },
+      size: { title: "Size", small: "Small", medium: "Medium", large: "Large" },
+      templates: {
+        title: "Templates",
+        restaurant: "Restaurant",
+        realEstate: "Real Estate",
+        events: "Events",
+        personalBrand: "Personal Brand",
+        influencers: "Influencers",
+        recruiters: "Recruiters",
+        corporate: "Corporate",
+      },
+      export: {
+        title: "Export",
+        png: "PNG",
+        svg: "SVG",
+        pdf: "PDF",
+        downloading: "Downloading...",
+      },
+      stats: {
+        title: "Statistics",
+        scans: "Total Scans",
+        today: "Today",
+        thisMonth: "This Month",
+      },
     },
     common: {
       language: "Language",
@@ -138,7 +259,8 @@ export const translations = {
       badge: "Plataforma QR Profesional",
       title1: "Crea Códigos QR",
       title2: "Que Destacan",
-      subtitle: "No es solo un generador QR — es una plataforma visual para crear, personalizar, gestionar y compartir códigos QR profesionales que cautivan a tu audiencia.",
+      subtitle:
+        "No es solo un generador QR — es una plataforma visual para crear, personalizar, gestionar y compartir códigos QR profesionales que cautivan a tu audiencia.",
       cta1: "Empezar Ahora",
       cta2: "Ver Plantillas",
       livePreview: "Vista Previa",
@@ -150,19 +272,39 @@ export const translations = {
       badge: "Funcionalidades",
       title1: "Todo lo Que Necesitas para",
       title2: "QR Profesional",
-      subtitle: "Desde URLs simples hasta campañas dinámicas complejas — una plataforma, infinitas posibilidades.",
-      social: { title: "QR Social", desc: "Conecta perfiles sociales, comparte información de contacto y haz crecer tu red con códigos QR sociales dinámicos." },
-      business: { title: "QR Negocios", desc: "Códigos QR profesionales para vCards, tarjetas de presentación digitales, perfiles de LinkedIn y páginas de empresa." },
-      utility: { title: "QR Utilidad", desc: "Crea códigos QR para acceso WiFi, enlaces de pago, descargas de apps y tareas cotidianas." },
-      restaurant: { title: "QR Restaurante", desc: "Menús digitales, sistemas de pedidos, reservas de mesa y colección de reseñas — todo por QR." },
-      event: { title: "QR Eventos", desc: "Registro de eventos, entradas, programación e integraciones de calendario con códigos QR dinámicos." },
-      analytics: { title: "Analíticas Inteligentes", desc: "Rastrea escaneos, distribución geográfica, tipos de dispositivo y métricas de engagement en tiempo real." },
+      subtitle:
+        "Desde URLs simples hasta campañas dinámicas complejas — una plataforma, infinitas posibilidades.",
+      social: {
+        title: "QR Social",
+        desc: "Conecta perfiles sociales, comparte información de contacto y haz crecer tu red con códigos QR sociales dinámicos.",
+      },
+      business: {
+        title: "QR Negocios",
+        desc: "Códigos QR profesionales para vCards, tarjetas de presentación digitales, perfiles de LinkedIn y páginas de empresa.",
+      },
+      utility: {
+        title: "QR Utilidad",
+        desc: "Crea códigos QR para acceso WiFi, enlaces de pago, descargas de apps y tareas cotidianas.",
+      },
+      restaurant: {
+        title: "QR Restaurante",
+        desc: "Menús digitales, sistemas de pedidos, reservas de mesa y colección de reseñas — todo por QR.",
+      },
+      event: {
+        title: "QR Eventos",
+        desc: "Registro de eventos, entradas, programación e integraciones de calendario con códigos QR dinámicos.",
+      },
+      analytics: {
+        title: "Analíticas Inteligentes",
+        desc: "Rastrea escaneos, distribución geográfica, tipos de dispositivo y métricas de engagement en tiempo real.",
+      },
     },
     templates: {
       badge: "Plantillas",
       title1: "Plantillas Hermosas para",
       title2: "Cada Caso de Uso",
-      subtitle: "Comienza con una plantilla diseñada profesionalmente y personalízala para que combine con tu marca.",
+      subtitle:
+        "Comienza con una plantilla diseñada profesionalmente y personalízala para que combine con tu marca.",
       explore: "Explorar",
       categories: {
         restaurants: "Restaurantes",
@@ -187,7 +329,8 @@ export const translations = {
       badge: "Analíticas",
       title1: "Insights Poderosos al",
       title2: "Alcance de Tu Mano",
-      subtitle: "Rastrea cada escaneo, entiende a tu audiencia y optimiza tus campañas QR con dashboards hermosos.",
+      subtitle:
+        "Rastrea cada escaneo, entiende a tu audiencia y optimiza tus campañas QR con dashboards hermosos.",
       totalScans: "Escaneos Totales",
       today: "Hoy",
       thisWeek: "Esta Semana",
@@ -203,12 +346,29 @@ export const translations = {
       badge: "Testimonios",
       title1: "Usado por",
       title2: "Profesionales",
-      subtitle: "Mira por qué miles de negocios y creadores eligen QR Universe para sus necesidades QR.",
+      subtitle:
+        "Mira por qué miles de negocios y creadores eligen QR Universe para sus necesidades QR.",
       quotes: [
-        { text: "QR Universe transformó cómo compartimos los menús de nuestro restaurante. Las analíticas nos ayudan a entender qué platos reciben más atención.", name: "María García", role: "Dueña de Restaurante" },
-        { text: "Como agente inmobiliario, necesito códigos QR que se vean profesionales. Las plantillas son hermosas y la personalización es infinita.", name: "Carlos Mendoza", role: "Agente Inmobiliario" },
-        { text: "Usamos QR Universe para todas las credenciales de eventos y materiales de marketing. La vista previa en vivo nos ahorra muchísimo tiempo.", name: "Ana Torres", role: "Organizadora de Eventos" },
-        { text: "La API y las funciones de generación en lote son exactamente lo que nuestro equipo de marketing necesitaba. Muy recomendado.", name: "David Kim", role: "Director de Marketing" },
+        {
+          text: "QR Universe transformó cómo compartimos los menús de nuestro restaurante. Las analíticas nos ayudan a entender qué platos reciben más atención.",
+          name: "María García",
+          role: "Dueña de Restaurante",
+        },
+        {
+          text: "Como agente inmobiliario, necesito códigos QR que se vean profesionales. Las plantillas son hermosas y la personalización es infinita.",
+          name: "Carlos Mendoza",
+          role: "Agente Inmobiliario",
+        },
+        {
+          text: "Usamos QR Universe para todas las credenciales de eventos y materiales de marketing. La vista previa en vivo nos ahorra muchísimo tiempo.",
+          name: "Ana Torres",
+          role: "Organizadora de Eventos",
+        },
+        {
+          text: "La API y las funciones de generación en lote son exactamente lo que nuestro equipo de marketing necesitaba. Muy recomendado.",
+          name: "David Kim",
+          role: "Director de Marketing",
+        },
       ],
     },
     faq: {
@@ -216,19 +376,38 @@ export const translations = {
       title1: "Preguntas",
       title2: "Frecuentes",
       q: [
-        { q: "¿Qué tipos de códigos QR puedo crear?", a: "Puedes crear códigos QR para URLs, redes WiFi, direcciones de correo, números de teléfono, SMS, perfiles de redes sociales, tarjetas de presentación, menús, eventos, entradas y más. Cada tipo está optimizado para su caso de uso específico." },
-        { q: "¿Los códigos QR son dinámicos o estáticos?", a: "¡Ambos! Los QR estáticos codifican datos directamente y nunca expiran. Los QR dinámicos te permiten cambiar la URL de destino después y incluyen analíticas de escaneo — perfectos para campañas de marketing." },
-        { q: "¿Puedo personalizar el diseño de mis QR?", a: "Absolutamente. Puedes personalizar colores, degradados, agregar logotipos, cambiar estilos de puntos y esquinas, añadir marcos y bordes, y elegir entre varias formas. La vista previa se actualiza en tiempo real mientras diseñas." },
-        { q: "¿Qué formatos de exportación están disponibles?", a: "Puedes descargar tus códigos QR como PNG de alta resolución, SVG (vector escalable) o PDF. Todas las exportaciones están listas para impresión a 300 DPI." },
-        { q: "¿Hay una API para generación masiva de QR?", a: "¡Sí! Nuestra API te permite generar códigos QR programáticamente en lote. Perfecto para campañas de marketing, empaques de productos y flujos empresariales." },
-        { q: "¿QR Universe es realmente gratis?", a: "¡Sí! QR Universe es 100% gratuito. Crea códigos QR ilimitados, accede a todas las plantillas y usa todas las opciones de personalización sin costo. Creemos que las herramientas QR profesionales deberían ser accesibles para todos." },
+        {
+          q: "¿Qué tipos de códigos QR puedo crear?",
+          a: "Puedes crear códigos QR para URLs, redes WiFi, direcciones de correo, números de teléfono, SMS, perfiles de redes sociales, tarjetas de presentación, menús, eventos, entradas y más. Cada tipo está optimizado para su caso de uso específico.",
+        },
+        {
+          q: "¿Los códigos QR son dinámicos o estáticos?",
+          a: "¡Ambos! Los QR estáticos codifican datos directamente y nunca expiran. Los QR dinámicos te permiten cambiar la URL de destino después y incluyen analíticas de escaneo — perfectos para campañas de marketing.",
+        },
+        {
+          q: "¿Puedo personalizar el diseño de mis QR?",
+          a: "Absolutamente. Puedes personalizar colores, degradados, agregar logotipos, cambiar estilos de puntos y esquinas, añadir marcos y bordes, y elegir entre varias formas. La vista previa se actualiza en tiempo real mientras diseñas.",
+        },
+        {
+          q: "¿Qué formatos de exportación están disponibles?",
+          a: "Puedes descargar tus códigos QR como PNG de alta resolución, SVG (vector escalable) o PDF. Todas las exportaciones están listas para impresión a 300 DPI.",
+        },
+        {
+          q: "¿Hay una API para generación masiva de QR?",
+          a: "¡Sí! Nuestra API te permite generar códigos QR programáticamente en lote. Perfecto para campañas de marketing, empaques de productos y flujos empresariales.",
+        },
+        {
+          q: "¿QR Universe es realmente gratis?",
+          a: "¡Sí! QR Universe es 100% gratuito. Crea códigos QR ilimitados, accede a todas las plantillas y usa todas las opciones de personalización sin costo. Creemos que las herramientas QR profesionales deberían ser accesibles para todos.",
+        },
       ],
     },
     cta: {
       badge: "Empieza a crear en segundos",
       title1: "¿Listo para Crear QR",
       title2: "Que Destacan?",
-      subtitle: "Únete a miles de profesionales que confían en QR Universe. Empieza gratis, sin tarjeta de crédito.",
+      subtitle:
+        "Únete a miles de profesionales que confían en QR Universe. Empieza gratis, sin tarjeta de crédito.",
       cta1: "Comenzar Gratis",
       cta2: "Ver Plantillas",
     },
@@ -244,6 +423,69 @@ export const translations = {
     header: {
       signIn: "Iniciar Sesión",
       getStarted: "Comenzar",
+    },
+    studio: {
+      title: "QR Studio",
+      subtitle: "Diseña tu código QR perfecto con vista previa en tiempo real.",
+      url: { label: "URL o Texto", placeholder: "https://ejemplo.com" },
+      colors: {
+        title: "Colores",
+        foreground: "Principal",
+        background: "Fondo",
+        gradient: "Degradado",
+        gradientStart: "Inicio",
+        gradientEnd: "Fin",
+        useGradient: "Usar Degradado",
+        cornerColor: "Color Esquinas",
+      },
+      logo: {
+        title: "Logo",
+        upload: "Subir Logo",
+        remove: "Quitar",
+        hint: "PNG o SVG recomendado",
+      },
+      shapes: {
+        title: "Forma",
+        dots: "Puntos",
+        corners: "Esquinas",
+        dotTypes: {
+          square: "Cuadrado",
+          rounded: "Redondeado",
+          circle: "Círculo",
+          dots: "Puntos",
+          classy: "Elegante",
+          classyRounded: "Elegante Redondeado",
+        },
+        cornerTypes: {
+          square: "Cuadrado",
+          rounded: "Redondeado",
+          circle: "Círculo",
+        },
+      },
+      size: { title: "Tamaño", small: "Pequeño", medium: "Mediano", large: "Grande" },
+      templates: {
+        title: "Plantillas",
+        restaurant: "Restaurante",
+        realEstate: "Inmobiliaria",
+        events: "Eventos",
+        personalBrand: "Marca Personal",
+        influencers: "Influencers",
+        recruiters: "Reclutadores",
+        corporate: "Corporativo",
+      },
+      export: {
+        title: "Exportar",
+        png: "PNG",
+        svg: "SVG",
+        pdf: "PDF",
+        downloading: "Descargando...",
+      },
+      stats: {
+        title: "Estadísticas",
+        scans: "Escaneos Totales",
+        today: "Hoy",
+        thisMonth: "Este Mes",
+      },
     },
     common: {
       language: "Idioma",
