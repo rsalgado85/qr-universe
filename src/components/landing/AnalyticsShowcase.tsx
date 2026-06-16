@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import {
   AreaChart,
@@ -16,7 +16,24 @@ import { useLanguage } from "@/components/language-provider";
 export function AnalyticsShowcase() {
   const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
+  const chartContainerRef = useRef<HTMLDivElement>(null);
+  const [chartReady, setChartReady] = useState(false);
+
   useEffect(() => { setMounted(true); }, []);
+
+  // Defer chart rendering until container has real dimensions
+  useEffect(() => {
+    if (!mounted || !chartContainerRef.current) return;
+    const el = chartContainerRef.current;
+    const check = () => {
+      if (el.offsetWidth > 0 && el.offsetHeight > 0) {
+        setChartReady(true);
+      } else {
+        requestAnimationFrame(check);
+      }
+    };
+    requestAnimationFrame(check);
+  }, [mounted]);
 
   const weeklyData = useMemo(() => {
     const days = t.analytics_showcase.days;
@@ -89,65 +106,65 @@ export function AnalyticsShowcase() {
           </div>
 
           {/* Chart */}
-          <div className="h-72 sm:h-80" style={{ minHeight: 288 }}>
-            {mounted ? (
-            <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={288}>
-              <AreaChart
-                data={weeklyData}
-                margin={{ top: 5, right: 5, left: -20, bottom: 0 }}
-              >
-                <defs>
-                  <linearGradient id="colorScans" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#14B8A6" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#14B8A6" stopOpacity={0} />
-                  </linearGradient>
-                  <linearGradient id="colorUnique" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#F5A623" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#F5A623" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid
-                  strokeDasharray="3 3"
-                  stroke="rgba(255,255,255,0.05)"
-                />
-                <XAxis
-                  dataKey="name"
-                  stroke="#94A3B8"
-                  fontSize={12}
-                  tickLine={false}
-                />
-                <YAxis
-                  stroke="#94A3B8"
-                  fontSize={12}
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <Tooltip
-                  contentStyle={{
-                    background: "#0F172A",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    borderRadius: "12px",
-                    color: "#F8FAFC",
-                  }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="scans"
-                  stroke="#14B8A6"
-                  strokeWidth={2}
-                  fillOpacity={1}
-                  fill="url(#colorScans)"
-                />
-                <Area
-                  type="monotone"
-                  dataKey="unique"
-                  stroke="#F5A623"
-                  strokeWidth={2}
-                  fillOpacity={1}
-                  fill="url(#colorUnique)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
+          <div ref={chartContainerRef} className="h-72 sm:h-80" style={{ minHeight: 288 }}>
+            {chartReady ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart
+                  data={weeklyData}
+                  margin={{ top: 5, right: 5, left: -20, bottom: 0 }}
+                >
+                  <defs>
+                    <linearGradient id="colorScans" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#14B8A6" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#14B8A6" stopOpacity={0} />
+                    </linearGradient>
+                    <linearGradient id="colorUnique" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#F5A623" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#F5A623" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke="rgba(255,255,255,0.05)"
+                  />
+                  <XAxis
+                    dataKey="name"
+                    stroke="#94A3B8"
+                    fontSize={12}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    stroke="#94A3B8"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                  />
+                  <Tooltip
+                    contentStyle={{
+                      background: "#0F172A",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      borderRadius: "12px",
+                      color: "#F8FAFC",
+                    }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="scans"
+                    stroke="#14B8A6"
+                    strokeWidth={2}
+                    fillOpacity={1}
+                    fill="url(#colorScans)"
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="unique"
+                    stroke="#F5A623"
+                    strokeWidth={2}
+                    fillOpacity={1}
+                    fill="url(#colorUnique)"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
             ) : (
               <div className="w-full h-full flex items-center justify-center">
                 <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
