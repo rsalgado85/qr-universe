@@ -14,15 +14,45 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "QR Universe — Create QR Codes That Stand Out",
+  metadataBase: new URL("https://qr-universe.vercel.app"),
+  title: "QR Universe — Crea Códigos QR que Destacan",
   description:
-    "QR Universe is a visual platform to create, customize, manage, and share professional QR codes. Create beautiful QR experiences with analytics, templates, and more.",
-  keywords: ["QR codes", "QR generator", "custom QR", "QR analytics", "QR templates"],
+    "QR Universe es una plataforma visual para crear, personalizar, gestionar y compartir códigos QR profesionales. Crea experiencias QR hermosas con analíticas, plantillas y más.",
+  keywords: ["QR codes", "generador QR", "QR personalizado", "analíticas QR", "plantillas QR"],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "QR Universe — Create QR Codes That Stand Out",
+    title: "QR Universe — Crea Códigos QR que Destacan",
     description:
-      "Create beautiful, professional QR codes with real-time preview, templates, and powerful analytics.",
+      "Crea códigos QR profesionales y hermosos con vista previa en tiempo real, plantillas y analíticas potentes.",
+    url: "https://qr-universe.vercel.app",
+    siteName: "QR Universe",
+    locale: "es_ES",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "QR Universe — Crea Códigos QR que Destacan",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "QR Universe — Crea Códigos QR que Destacan",
+    description:
+      "Crea códigos QR profesionales y hermosos con vista previa en tiempo real, plantillas y analíticas potentes.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -32,7 +62,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "QR Universe",
+              url: "https://qr-universe.vercel.app",
+              description:
+                "QR Universe es una plataforma visual para crear, personalizar, gestionar y compartir códigos QR profesionales.",
+              applicationCategory: "DesignApplication",
+              operatingSystem: "Web",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <LanguageProvider>
