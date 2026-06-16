@@ -21,22 +21,22 @@ export function Hero() {
         }}
       />
 
-      {/* Animated orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[128px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[128px] animate-pulse" />
+      {/* Animated orbs — lightweight static blur, no pulse */}
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-[80px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gold/5 rounded-full blur-[80px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         {/* Left: Text content */}
         <motion.div
           className="flex-1 text-center lg:text-left"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
           >
             <Sparkles className="w-4 h-4 text-gold" />
@@ -49,7 +49,7 @@ export function Hero() {
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
           >
             {t.hero.title1}
             <br />
@@ -58,18 +58,18 @@ export function Hero() {
 
           <motion.p
             className="text-lg sm:text-xl text-text-secondary max-w-xl mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.7 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
           >
             {t.hero.subtitle}
           </motion.p>
 
           <motion.div
             className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.7 }}
+            transition={{ delay: 0.35, duration: 0.5 }}
           >
             <a
               href="/studio"
@@ -91,29 +91,18 @@ export function Hero() {
         {/* Right: Interactive QR Builder */}
         <motion.div
           className="flex-1 w-full max-w-md"
-          initial={{ opacity: 0, x: 60 }}
+          initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+          transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
         >
           <QRBuilder />
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="text-text-secondary"
-        >
-          <ChevronDown className="w-6 h-6" />
-        </motion.div>
-      </motion.div>
+      {/* Scroll indicator — static, no infinite animation */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-secondary opacity-40">
+        <ChevronDown className="w-6 h-6" />
+      </div>
     </section>
   );
 }

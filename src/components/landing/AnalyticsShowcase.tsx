@@ -89,9 +89,9 @@ export function AnalyticsShowcase() {
           </div>
 
           {/* Chart */}
-          <div className="h-72 sm:h-80">
+          <div className="h-72 sm:h-80" style={{ minHeight: 288 }}>
             {mounted ? (
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={288}>
               <AreaChart
                 data={weeklyData}
                 margin={{ top: 5, right: 5, left: -20, bottom: 0 }}
